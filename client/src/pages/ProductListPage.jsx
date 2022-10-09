@@ -43,12 +43,10 @@ const ProductListPage = () => {
 
         let AllProduct = useSelector((state)=>state.product.AllProduct);
         let Total = useSelector((state)=>state.product.Total);
-        console.log(AllProduct);
-        console.log("total "+Total)
 
 
     return (<Fragment>
-        <div className="container my-5">
+        <div className="my-5 overflow-hidden">
             <div className="row">
                 <div className="col-12">
                     <div className="card">
@@ -56,13 +54,13 @@ const ProductListPage = () => {
                             <div className="container-fluid">
                                 <div className="row">
                                     <div className="col-6">
-                                        <h5>My Product List</h5>
+                                        <h4 className="text-danger">My Product List</h4>
                                     </div>
                                     <div className="col-2">
                                         <select
                                             className="form-control mx-2
                                             form-select-sm form-select
-                                            form-control-sm"
+                                            form-control-sm border-primary"
                                             onChange={perPageOnChange}
                                         >
                                             <option value="5">5 Per Page</option>
@@ -77,7 +75,8 @@ const ProductListPage = () => {
                                         <div className="input-group mb-3">
                                             <input
                                                 type="text"
-                                                className="form-control form-control-sm"
+                                                className="form-control form-control-sm
+                                                border-primary"
                                                 placeholder="Search.."
                                                 aria-label="Recipient's username"
                                                 aria-describedby="button-addon2"
@@ -99,19 +98,21 @@ const ProductListPage = () => {
                                             <table className="table">
                                                 <thead className="sticky-top bg-white">
                                                 <tr>
-                                                    <th className="text-uppercase text-secondary
-                                                    text-xxs font-weight-bolder opacity-7">
-                                                        Product
+                                                    <th className="text-uppercase
+                                                    text-danger text-center
+                                                    text-xl font-weight-bolder">
+                                                        Product Name
                                                     </th>
                                                     <th className="text-uppercase text-secondary
-                                                     text-xxs font-weight-bolder opacity-7">
+                                                     text-xl font-weight-bolder text-danger ">
                                                         Price
                                                     </th>
                                                     <th className="text-uppercase text-secondary
-                                                     text-xxs font-weight-bolder opacity-7">
+                                                     text-xl font-weight-bolder text-danger ">
                                                         Stock
                                                     </th>
-                                                    <th className="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                    <th className="text-uppercase text-secondary text-xl
+                                                    font-weight-bolder text-danger ">
                                                         Code
                                                     </th>
                                                 </tr>
@@ -123,22 +124,22 @@ const ProductListPage = () => {
                                                             <tr >
                                                                 <td>
                                                                     <div className="d-flex px-2 py-1">
-                                                                        <div>
+                                                                        <div className="productImage">
                                                                             <img src={item.image} className="avatar me-3" alt="Product"/>
                                                                         </div>
                                                                         <div
                                                                             className="d-flex flex-column justify-content-center">
-                                                                            <h6 className="mb-0  text-xs">
+                                                                            <h6 className="mb-0  text-bolder text-primary">
                                                                                 {item.title}
                                                                             </h6>
-                                                                            <p className="text-xs  text-secondary mb-0">
+                                                                            <p className="text-xl  text-secondary mb-0">
                                                                                 {item.category}
                                                                             </p>
                                                                         </div>
                                                                     </div>
                                                                 </td>
                                                                 <td>
-                                                                    <p className="text-xs font-weight-bold mb-0">
+                                                                    <p className="text-xl font-weight-bold mb-0 text-primary">
                                                                         {item.brand}
                                                                     </p>
                                                                     <p className="text-xs  text-secondary mb-0">
@@ -181,7 +182,7 @@ const ProductListPage = () => {
                                                     nextLinkClassName="page-link"
                                                     breakLabel="..."
                                                     breakClassName="page-item"
-                                                    breakLinkClassName="page-link"
+                                                           breakLinkClassName="page-link"
                                                     pageCount={Total/perPage}
                                                     marginPagesDisplayed={3}
                                                     pageRangeDisplayed={5}
